@@ -15,7 +15,7 @@ $("#search-btn").click(function (event) {
     var citySearch = $("#text-input").val();
   console.log(citySearch)
 
-   fetch('https://api.openweathermap.org/data/2.5/weather?q='+citySearch+'&units=imperial&appid=b21816d3467ea13d650a6252dc04b76a'
+   fetch('https://api.openweathermap.org/data/2.5/forecast?q='+citySearch+'&units=imperial&appid=b21816d3467ea13d650a6252dc04b76a'
      )
        .then(function (response) {
         return response.json();
