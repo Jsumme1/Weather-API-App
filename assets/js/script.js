@@ -3,8 +3,6 @@
 const timeEl = document.getElementById("time");
 const dateEl = document.getElementById("date");
 const currentWeatherItems = document.getElementById("current-weather-items");
-const timezone = document.getElementById("time-zone");
-const countryEl = document.getElementById("country");
 const form = document.querySelector(".form");
 const weatherForecastEl = document.getElementById("weather-forecast");
 const currentTempEl = document.getElementById("current-temp");
@@ -22,5 +20,9 @@ $("#search-btn").click(function (event) {
        })
       .then(function (data) {
         console.log(data);
+        console.log(data.list[0].dt_txt);
+        console.log(data.list[0].main.temp);
+        var dateTitle=$("#date");
+        dateTitle.txt(data.list[0].dt_txt);
      });
 });
