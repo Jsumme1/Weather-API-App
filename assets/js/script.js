@@ -33,35 +33,36 @@ $("#search-btn").click(function (event) {
          })
          .then(function (data2) {
            console.log(data2);
-           console.log(data2.current.dt);
            console.log(data2.current.temp);
            console.log(data2.current.wind_speed);
            console.log(data2.current.humidity);
            console.log(data2.current.uvi);
 
           // turn dt to current date - unix time to normal people time
-           const unixTime= data2.current.dt;
-           const s = new Date(unixTime*1000).toLocaleDateString("en-Us");
-           console.log(s)
+           const todaysDate = new Date(data2.current.dt*1000).toLocaleDateString("en-Us");
+           console.log(todaysDate);
           //  save current data as const
            const currentTempEl = data2.current.temp;
            const currentWindSpeedEl = data2.current.wind_speed;
            const currentHumidityEl = data2.current.humidity;
            const uviEl = data2.current.uvi;
 
-          //  save day zero data (tomorrow)
-          const dayZeroDate = data2.daily[2].dt;
-          const dayZeroTempEl = data2.daily[0].temp.day;
-          const dayZeroWindSpeedEl = data2.daily[0].wind_speed;
-          const dayZeroHumidityEl = data2.daily[0].humidity;
-          const dayZeroIcon = data2.daily[0].weather[0].icon;
+          //  save dayOne data (tomorrow)
+          const dayOneDate = new Date(data2.daily[1].dt * 1000
+          ).toLocaleDateString("en-Us");
+          const dayOneTempEl = data2.daily[1].temp.day;
+          const dayOneWindSpeedEl = data2.daily[1].wind_speed;
+          const dayOneHumidityEl = data2.daily[1].humidity;
+          const dayOneIcon = data2.daily[1].weather[0].icon;
 
 
-          console.log(data2.daily[0].dt);
-           console.log(data2.daily[0].temp.day);
-           console.log(data2.daily[0].wind_speed);
-           console.log(data2.daily[0].humidity);
-           console.log(data2.daily[0].weather[0].icon);
+          console.log(
+            new Date(data2.daily[1].dt * 1000).toLocaleDateString("en-Us")
+          );
+           console.log(data2.daily[1].temp.day);
+           console.log(data2.daily[1].wind_speed);
+           console.log(data2.daily[1].humidity);
+           console.log(data2.daily[1].weather[0].icon);
            
          });
 

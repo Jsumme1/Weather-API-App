@@ -21,6 +21,7 @@
 </header>
 
 <body>
+    <br>
     <main class="container-fluid">
         <div class="row">
              <div class="col-md-3" id="searchFeature">
@@ -30,26 +31,29 @@
                  <input type="text" name="cityName" placeholder="City Name" id="city-input"  autofocus="true" class = "gap-2 col-8 mx-auto mb-3"/>
                  <button type="submit" id="search-btn">Search</button>
                  </form>
-                    <div class="border"> </div>
+                    <div class="border border-5 border-primary"> </div>
                             <br>
                  <div class="new-cities">
                     <button>push</button>
                  </div>
 
              </div>
-           <div class="col-md-9" id="main-city">
+           <div class="col-md-9">
+               <div class="border border-5 border-primary p-5">
                <h2 id="top-city">Houston</h2>
                <h2 id="current-date">10-2-21</h2>
                <h2 id="current-temp">79</h2>
                <h2 id="current-wind">3</h2>
                <h2 id="current-humidity">89</h2>
                <h2 id="current-uvi">0</h2>
+                </div>
+                <br>
 
-                <div class=" row mt-4" id="weatherCards">
+                <div class="row mt-4" id="weatherCards">
                     <h3>5-day Forecast</h3>
                     <div class="card m-2 others" id="day-zero" style="width: 16rem; height: 20rem;">
                         <div class="card-body">
-                            <h4 class="card-title">Date</h4>
+                            <h4 id="day-one-date class="card-title">Date</h4>
                             <h4 class="card-title">Icon</h4>
                             <h4 class="card-title">Temp</h4>
                             <h4 class="card-title">Wind</h4>
