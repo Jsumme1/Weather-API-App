@@ -17,3 +17,8 @@ ul {
 ul li {
   margin: 10px;
 }
+
+.border {
+
+  border-style: solid 4px;
+}
