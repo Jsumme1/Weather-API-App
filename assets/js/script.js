@@ -1,6 +1,13 @@
 "use strict";
 //List of constants:
-const timeEl = document.getElementById("time");
+const topCityNameEl = document.getElementById("top-city");
+const topCityDateEl = document.getElementById("current-date");
+const topCityTempEl = document.getElementById("current-temp");
+const topCityWindEl = document.getElementById("current-wind");
+const topCityHumidityEl = document.getElementById("current-humidity");
+const topCityUviEl = document.getElementById("current-uvi");
+
+
 const dateEl = document.getElementById("date");
 const currentWeatherItems = document.getElementById("current-weather-items");
 const form = document.querySelector(".form");
@@ -38,31 +45,25 @@ $("#search-btn").click(function (event) {
            console.log(data2.current.humidity);
            console.log(data2.current.uvi);
 
+          // make object to hold data
+          const currentInfo {
           // turn dt to current date - unix time to normal people time
-           const todaysDate = new Date(data2.current.dt*1000).toLocaleDateString("en-Us");
-           console.log(todaysDate);
-          //  save current data as const
-           const currentTempEl = data2.current.temp;
-           const currentWindSpeedEl = data2.current.wind_speed;
-           const currentHumidityEl = data2.current.humidity;
-           const uviEl = data2.current.uvi;
+          todaysDate: new Date(data2.current.dt*1000).toLocaleDateString("en-Us");
+          currentTemp: data2.current.temp;
+          currentWindSpeed: data2.current.wind_speed;
+          currentHumidity:data2.current.humidity;
+          uvi: data2.current.uvi;
+           //  save dayOne data (tomorrow)
+          dayOneDate: new Date(data2.daily[1].dt * 1000).toLocaleDateString("en-Us");
+          dayOneTemp: data2.daily[1].temp.day;
+          dayOneWindSpeed: data2.daily[1].wind_speed;
+          dayOneHumidity: data2.daily[1].humidity;
+          dayOneIcon: data2.daily[1].weather[0].icon;
+          };
 
           //  save dayOne data (tomorrow)
-          const dayOneDate = new Date(data2.daily[1].dt * 1000
-          ).toLocaleDateString("en-Us");
-          const dayOneTempEl = data2.daily[1].temp.day;
-          const dayOneWindSpeedEl = data2.daily[1].wind_speed;
-          const dayOneHumidityEl = data2.daily[1].humidity;
-          const dayOneIcon = data2.daily[1].weather[0].icon;
-
-
-          console.log(
-            new Date(data2.daily[1].dt * 1000).toLocaleDateString("en-Us")
-          );
-           console.log(data2.daily[1].temp.day);
-           console.log(data2.daily[1].wind_speed);
-           console.log(data2.daily[1].humidity);
-           console.log(data2.daily[1].weather[0].icon);
+          
+        
            
          });
 
