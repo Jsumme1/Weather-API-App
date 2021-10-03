@@ -73,9 +73,9 @@ $("#search-btn").click(function (event) {
 
            //function to append html document with current city weather info, add button
            function displayCurrentWeather(currentInfo) {
-             topCityTempEl.textContent = currentTemp;
+             topCityTempEl.textContent = current.Info.currentTemp;
              topCityNameEl.textContent = currentCity;
-             topCityNameEl.textContent = currentIcon;
+             topCityIconEl.textContent = currentIcon;
              topCityDateEl.textContent = todaysDate;
              topCityWindEl.textContent = currentWindSpeed;
              topCityHumidityEl.textContent = CurrentHumidity;
@@ -85,23 +85,39 @@ $("#search-btn").click(function (event) {
              var btn = document.createElement("BUTTON");
              btn.innerHTML = "citySearch";
              document.newCitiesEl.appendChild(btn);
-           }
+
+            //  change UVI color
+            if (uvi=<2){
+              topCityUviEl.add"green");
+               } else if (3=<uvi=>5) {
+                topCityUviEl.add("yellow");
+               } else if (uvi=6 || uvi = 7){
+                topCityUviEl.add"(orange");
+              } else if {
+                topCityUviEl.add("red");
+              }
+           };
 
            //  call function to display/append current data
           //  displayCurrentWeather();
 
            //  save dayOne data (tomorrow) constant
+            // for loop to call/display/append 4/5 day forecast
+
+           for (let i=1; i<5; i++){
            const DailyInfo = {
-             dayOneDate: new Date(data2.daily[1].dt * 1000).toLocaleDateString(
+             dayOneDate: new Date(data2.daily[i].dt * 1000).toLocaleDateString(
                "en-Us"
              ),
-             dayOneTemp: data2.daily[1].temp.day,
-             dayOneWindSpeed: data2.daily[1].wind_speed,
-             dayOneHumidity: data2.daily[1].humidity,
-             dayOneIcon: data2.daily[1].weather[0].icon,
+             dayOneTemp: data2.daily[i].temp.day,
+             dayOneWindSpeed: data2.daily[i].wind_speed,
+             dayOneHumidity: data2.daily[i].humidity,
+             dayOneIcon: data2.daily[i].weather[0].icon,
            };
+           console.log(data2.daily[i].temp.day)
+          };
 
-           // for loop to call/display/append 4/5 day forecast
+          
          });
 
 
