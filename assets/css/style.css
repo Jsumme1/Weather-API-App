@@ -18,3 +18,18 @@ ul li {
   margin: 10px;
 }
 
+.green {
+  background-color: green;
+}
+
+.orange {
+  background-color: orange;
+}
+
+.red {
+  background-color: red;
+}
+
+.yellow {
+  background-color: yellow;
+}

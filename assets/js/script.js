@@ -72,34 +72,35 @@ $("#search-btn").click(function (event) {
            };
 
            //function to append html document with current city weather info, add button
-           function displayCurrentWeather(currentInfo) {
-             topCityTempEl.textContent = current.Info.currentTemp;
-             topCityNameEl.textContent = currentCity;
-             topCityIconEl.textContent = currentIcon;
-             topCityDateEl.textContent = todaysDate;
-             topCityWindEl.textContent = currentWindSpeed;
-             topCityHumidityEl.textContent = CurrentHumidity;
-             topCityUviEl.textContent = uvi;
+           function displayCurrentWeather() {
+             topCityTempEl.textContent = currentInfo.currentTemp;
+             topCityNameEl.textContent = currentInfo.currentCity;
+             topCityIconEl.textContent = currentInfo.currentIcon;
+             topCityDateEl.textContent = currentInfo.todaysDate;
+             topCityWindEl.textContent = currentInfo.currentWindSpeed;
+             topCityHumidityEl.textContent = currentinfo.CurrentHumidity;
+             topCityUviEl.textContent = currentinfo.uvi;
 
              // add button to append to button list
-             var btn = document.createElement("BUTTON");
-             btn.innerHTML = "citySearch";
-             document.newCitiesEl.appendChild(btn);
+             $(".new-cities").append("<button>'currentCity'</button>");
 
-            //  change UVI color
-            if (uvi=<2){
-              topCityUviEl.add"green");
-               } else if (3=<uvi=>5) {
-                topCityUviEl.add("yellow");
-               } else if (uvi=6 || uvi = 7){
-                topCityUviEl.add"(orange");
-              } else if {
-                topCityUviEl.add("red");
-              }
+            // //  change UVI color
+            //  if (uvi<=2){
+            //   topCityUviEl.addClass("green");
+
+            //    } else if (uvi>=3 || uvi<=5) {
+            //     topCityUviEl.addClass("yellow");
+
+            //    } else if (uvi=6 || uvi=7) {
+            //     topCityUviEl.addClass("orange");
+
+            //   } else {
+            //     topCityUviEl.addClass("red");
+            //   };
            };
 
            //  call function to display/append current data
-          //  displayCurrentWeather();
+          displayCurrentWeather(currentinfo);
 
            //  save dayOne data (tomorrow) constant
             // for loop to call/display/append 4/5 day forecast
