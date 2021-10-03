@@ -18,16 +18,6 @@ const humdityDayOne = document.getElementById("humidity-day1");
 
 
 
-// function to pull data for 5/4 day forecast
-
-// function displayFourDays (){
-//   dayOneDate.textContent = dayOneDate;
-//   iconDayOne.textContent = dayOneIcon;
-//   tempDayOne.textContent = dayOneTemp;
-//   humdityDayOne.textContent = dayOneHumidity;
-//   windDayOne.textContent = dayOneWindSpeed;
-// };
-
 $("#search-btn").click(function (event) {
     event.preventDefault();
     var citySearch = $("#city-input").val();
@@ -58,21 +48,31 @@ $("#search-btn").click(function (event) {
            console.log(data2.current.humidity);
            console.log(data2.current.uvi);
 
-           const currentInfo = {
-             // turn dt to current date - unix time to normal people time
-             todaysDate: new Date(data2.current.dt * 1000).toLocaleDateString(
-               "en-Us"
-             ),
-             currentIcon: data2.current.weather[0].icon,
-             currentTemp: data2.current.temp,
-             currentWindSpeed: data2.current.wind_speed,
-             currentHumidity: data2.current.humidity,
-             uvi: data2.current.uvi,
-             currentCity: citySearch,
-           };
+           let currentCity = citySearch;
+           topCityNameEl.append(currentCity);
+
+           // turn dt to current date - unix time to normal people time
+           let todaysDate = new Date(data2.current.dt * 1000).toLocaleDateString("en-Us");
+           topCityDateEl.append(todaysDate);
+
+           let currentTemp = data2.current.temp;
+           topCityTempEl.append(currentTemp);
+
+           let currentWindSpeed = data2.current.wind_speed;
+           topCityWindEl.append(currentWindSpeed);
+
+           let uvi = data2.current.uvi;
+           topCityUviEl.append(uvi);
+
+           let currentHumidity = data2.current.humidity;
+           topCityHumidityEl.append(currentHumidity);
+
+           let currentIcon= data2.current.weather[0].icon;
+           topCityIconEl.append.currentIcon;
 
            //function to append html document with current city weather info, add button
            function displayCurrentWeather() {
+             $(".current-temp").append(currentInfo.currentTemp);
              topCityTempEl.textContent = currentInfo.currentTemp;
              topCityNameEl.textContent = currentInfo.currentCity;
              topCityIconEl.textContent = currentInfo.currentIcon;
@@ -84,41 +84,39 @@ $("#search-btn").click(function (event) {
              // add button to append to button list
              $(".new-cities").append("<button>'currentCity'</button>");
 
-            // //  change UVI color
-            //  if (uvi<=2){
-            //   topCityUviEl.addClass("green");
+             // //  change UVI color
+             //  if (uvi<=2){
+             //   topCityUviEl.addClass("green");
 
-            //    } else if (uvi>=3 || uvi<=5) {
-            //     topCityUviEl.addClass("yellow");
+             //    } else if (uvi>=3 || uvi<=5) {
+             //     topCityUviEl.addClass("yellow");
 
-            //    } else if (uvi=6 || uvi=7) {
-            //     topCityUviEl.addClass("orange");
+             //    } else if (uvi=6 || uvi=7) {
+             //     topCityUviEl.addClass("orange");
 
-            //   } else {
-            //     topCityUviEl.addClass("red");
-            //   };
-           };
+             //   } else {
+             //     topCityUviEl.addClass("red");
+             //   };
+           }
 
            //  call function to display/append current data
-          displayCurrentWeather(currentinfo);
+           // displayCurrentWeather(currentinfo);
 
            //  save dayOne data (tomorrow) constant
-            // for loop to call/display/append 4/5 day forecast
+           // for loop to call/display/append 4/5 day forecast
 
-           for (let i=1; i<5; i++){
-           const DailyInfo = {
-             dayOneDate: new Date(data2.daily[i].dt * 1000).toLocaleDateString(
-               "en-Us"
-             ),
-             dayOneTemp: data2.daily[i].temp.day,
-             dayOneWindSpeed: data2.daily[i].wind_speed,
-             dayOneHumidity: data2.daily[i].humidity,
-             dayOneIcon: data2.daily[i].weather[0].icon,
-           };
-           console.log(data2.daily[i].temp.day)
-          };
-
-          
+           for (let i = 1; i < 5; i++) {
+             const DailyInfo = {
+               dayOneDate: new Date(
+                 data2.daily[i].dt * 1000
+               ).toLocaleDateString("en-Us"),
+               dayOneTemp: data2.daily[i].temp.day,
+               dayOneWindSpeed: data2.daily[i].wind_speed,
+               dayOneHumidity: data2.daily[i].humidity,
+               dayOneIcon: data2.daily[i].weather[0].icon,
+             };
+             console.log(data2.daily[i].temp.day);
+           }
          });
 
 
