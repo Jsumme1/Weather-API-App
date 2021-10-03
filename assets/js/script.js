@@ -15,6 +15,24 @@ const tempDayOneEl = document.getElementById("temp-day1");
 const windDayOneEl = document.getElementById("wind-day1");
 const humdityDayOneEl = document.getElementById("humidity-day1");
 
+const dayTwoDateEl = document.getElementById("date-day2");
+const iconDayTwoEl = document.getElementById("icon-day2");
+const tempDayTwoEl = document.getElementById("temp-day2");
+const windDayTwoEl = document.getElementById("wind-day2");
+const humdityDayTwoEl = document.getElementById("humidity-day2");
+
+const dayThreeDateEl = document.getElementById("date-day3");
+const iconDayThreeEl = document.getElementById("icon-day3");
+const tempDayThreeEl = document.getElementById("temp-day3");
+const windDayThreeEl = document.getElementById("wind-day3");
+const humdityDayThreeEl = document.getElementById("humidity-day3");
+
+const dayFourDateEl = document.getElementById("date-day4");
+const iconDayFourEl = document.getElementById("icon-day4");
+const tempDayFourEl = document.getElementById("temp-day4");
+const windDayFourEl = document.getElementById("wind-day4");
+const humdityDayFourEl = document.getElementById("humidity-day4");
+
 
 
 
@@ -89,24 +107,75 @@ $("#search-btn").click(function (event) {
            
            // for loop to call/display/append 4/5 day forecast
 
-           for (let i = 1; i < 5; i++) {
+          //  for (let i = 1; i < 5; i++) { I can't figure out how to split this - put it in an array?
             
              // turn dt to current date - unix time to normal people time
-           let dayOneDate = new Date(data2.daily[i].dt * 1000).toLocaleDateString("en-Us");
+           let dayOneDate = new Date(data2.daily[1].dt * 1000).toLocaleDateString("en-Us");
            dayOneDateEl.append(dayOneDate);
 
-           let dayOneTemp = data2.daily[i].temp.day;
+           let dayOneTemp = data2.daily[1].temp.day;
            tempDayOneEl.append(dayOneTemp);
 
-           let dayOneWindSpeed= data2.daily[i].wind_speed;
+           let dayOneWindSpeed= data2.daily[1].wind_speed;
            windDayOneEl.append(dayOneWindSpeed);
 
-           let dayOneHumidity= data2.daily[i].humidity;
+           let dayOneHumidity= data2.daily[1].humidity;
            humdityDayOneEl.append(dayOneHumidity);
 
-           let dayOneIcon= data2.daily[i].weather[0].icon;
+           let dayOneIcon= data2.daily[1].weather[0].icon;
            iconDayOneEl.append(dayOneIcon);
-           }
+
+            let dayTwoDate = new Date(
+                data2.daily[2].dt * 1000
+              ).toLocaleDateString("en-Us");
+              dayTwoDateEl.append(dayTwoDate);
+
+              let dayTwoTemp = data2.daily[2].temp.day;
+              tempDayTwoEl.append(dayTwoTemp);
+
+              let dayTwoWindSpeed = data2.daily[2].wind_speed;
+              windDayTwoEl.append(dayTwoWindSpeed);
+
+              let dayTwoHumidity = data2.daily[2].humidity;
+              humdityDayTwoEl.append(dayTwoHumidity);
+
+              let dayTwoIcon = data2.daily[2].weather[0].icon;
+              iconDayTwoEl.append(dayTwoIcon);
+
+              let dayThreeDate = new Date(
+                data2.daily[3].dt * 1000
+              ).toLocaleDateString("en-Us");
+              dayThreeDateEl.append(dayThreeDate);
+
+              let dayThreeTemp = data2.daily[3].temp.day;
+              tempDayThreeEl.append(dayThreeTemp);
+
+              let dayThreeWindSpeed = data2.daily[3].wind_speed;
+              windDayThreeEl.append(dayThreeWindSpeed);
+
+              let dayThreeHumidity = data2.daily[3].humidity;
+              humdityDayThreeEl.append(dayThreeHumidity);
+
+              let dayThreeIcon = data2.daily[3].weather[0].icon;
+              iconDayThreeEl.append(dayThreeIcon);
+
+              let dayFourDate = new Date(
+                data2.daily[3].dt * 1000
+              ).toLocaleDateString("en-Us");
+              dayFourDateEl.append(dayFourDate);
+
+              let dayFourTemp = data2.daily[3].temp.day;
+              tempDayFourEl.append(dayFourTemp);
+
+              let dayFourWindSpeed = data2.daily[3].wind_speed;
+              windDayFourEl.append(dayFourWindSpeed);
+
+              let dayFourHumidity = data2.daily[3].humidity;
+              humdityDayFourEl.append(dayFourHumidity);
+
+              let dayFourIcon = data2.daily[3].weather[0].icon;
+              iconDayFourEl.append(dayFourIcon);
+           
          });
         });  
         });
