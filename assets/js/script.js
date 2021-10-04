@@ -85,8 +85,10 @@ $("#search-btn").click(function (event) {
            let currentHumidity = data2.current.humidity;
            topCityHumidityEl.append(currentHumidity);
 
+          // stole this from Stack Overflow - get wether icon to display
            let currentIcon= data2.current.weather[0].icon;
-           topCityIconEl.append.currentIcon;
+           let iconurl = "http://openweathermap.org/img/w/" + currentIcon + ".png";
+            $("#wicon").attr("src", iconurl);
 
           //  add selected city as button
            $(".new-cities").append("<button></button>").text(citySearch);
@@ -123,8 +125,10 @@ $("#search-btn").click(function (event) {
            humdityDayOneEl.append(dayOneHumidity);
 
            let dayOneIcon= data2.daily[1].weather[0].icon;
-           iconDayOneEl.append(dayOneIcon);
-
+           let iconurlOne =
+             "http://openweathermap.org/img/w/" + dayOneIcon + ".png";
+             $("#wicon1").attr("src", iconurlOne);
+           
             let dayTwoDate = new Date(
                 data2.daily[2].dt * 1000
               ).toLocaleDateString("en-Us");
@@ -140,7 +144,9 @@ $("#search-btn").click(function (event) {
               humdityDayTwoEl.append(dayTwoHumidity);
 
               let dayTwoIcon = data2.daily[2].weather[0].icon;
-              iconDayTwoEl.append(dayTwoIcon);
+              let iconurlTwo =
+                "http://openweathermap.org/img/w/" + dayTwoIcon + ".png";
+              $("#wicon2").attr("src", iconurlTwo);
 
               let dayThreeDate = new Date(
                 data2.daily[3].dt * 1000
@@ -157,24 +163,28 @@ $("#search-btn").click(function (event) {
               humdityDayThreeEl.append(dayThreeHumidity);
 
               let dayThreeIcon = data2.daily[3].weather[0].icon;
-              iconDayThreeEl.append(dayThreeIcon);
+              let iconurlThree =
+                "http://openweathermap.org/img/w/" + dayThreeIcon + ".png";
+              $("#wicon3").attr("src", iconurlThree);
 
               let dayFourDate = new Date(
-                data2.daily[3].dt * 1000
+                data2.daily[4].dt * 1000
               ).toLocaleDateString("en-Us");
               dayFourDateEl.append(dayFourDate);
 
-              let dayFourTemp = data2.daily[3].temp.day;
+              let dayFourTemp = data2.daily[4].temp.day;
               tempDayFourEl.append(dayFourTemp);
 
-              let dayFourWindSpeed = data2.daily[3].wind_speed;
+              let dayFourWindSpeed = data2.daily[4].wind_speed;
               windDayFourEl.append(dayFourWindSpeed);
 
-              let dayFourHumidity = data2.daily[3].humidity;
+              let dayFourHumidity = data2.daily[4].humidity;
               humdityDayFourEl.append(dayFourHumidity);
 
-              let dayFourIcon = data2.daily[3].weather[0].icon;
-              iconDayFourEl.append(dayFourIcon);
+              let dayFourIcon = data2.daily[4].weather[0].icon;
+              let iconurlFour =
+                "http://openweathermap.org/img/w/" + dayFourIcon + ".png";
+              $("#wicon4").attr("src", iconurlFour);
            
          });
         });  
