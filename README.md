@@ -13,7 +13,7 @@ UV index is set to change color with level of relative danger.
 *jQuery
 
 ## Website
-https://jsumme1.github.io/Random-Password-Generator/
+https://jsumme1.github.io/Weather-API-App/
 
 ## Screen Shots
 ![image](https://user-images.githubusercontent.com/88805050/135779330-f5a58397-97e9-455a-aa3c-0c6622be1e69.png)
