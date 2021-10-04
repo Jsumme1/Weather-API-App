@@ -8,9 +8,9 @@ UV index is set to change color with level of relative danger.
 ## Built With
 * HTML
 * CSS
-*JavaScript
-*BootStrap
-*jQuery
+* JavaScript
+* BootStrap
+* jQuery
 
 ## Website
 https://jsumme1.github.io/Weather-API-App/
